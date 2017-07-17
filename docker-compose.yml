@@ -2,6 +2,7 @@ version: '2'
 services:
   server:
     image: redash/redash:latest
+    restart: always
     command: server
     depends_on:
       - postgres
@@ -22,6 +23,7 @@ services:
       ATHENA_PROXY_URL: http://redash-amazon-athena-proxy:4567/query
   worker:
     image: redash/redash:latest
+    restart: always
     command: scheduler
     environment:
       PYTHONUNBUFFERED: 0
@@ -37,12 +39,15 @@ services:
       ATHENA_PROXY_URL: http://redash-amazon-athena-proxy:4567/query
   redis:
     image: redis:3.0-alpine
+    restart: always
   postgres:
     image: postgres:9.5.6-alpine
+    restart: always
     # volumes:
     #   - /opt/postgres-data:/var/lib/postgresql/data
   nginx:
     image: redash/nginx:latest
+    restart: always
     ports:
       - "28080:80"
     depends_on:
@@ -56,5 +61,6 @@ services:
   #    - "4567:4567"
     depends_on:
       - server
+    restart: always
 volumes:
   postgres-data: {}

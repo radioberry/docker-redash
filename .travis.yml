@@ -19,5 +19,7 @@ after_script:
   - docker-compose ps
   - docker volume ls
   - curl localhost:28080
+  - docker-compose restart
+  - curl localhost:28080
 notifications:
   slack: diorama-radio:JaoyLeAlhZ8e6ugkadHEdteG
