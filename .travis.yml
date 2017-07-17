@@ -1,0 +1,24 @@
+sudo: required
+
+services:
+  - docker
+
+branches:
+  only:
+    - master
+    - staging-ci
+
+install:
+
+before_script:
+  - docker-compose config
+script:
+  - git clone https://github.com/getredash/redash-amazon-athena-proxy.git
+  - docker-compose run --rm server create_db
+  - docker-compose up -d
+after_script:
+  - docker-compose ps
+  - docker volume ls
+  - curl localhost:28080
+notifications:
+  slack: diorama-radio:JaoyLeAlhZ8e6ugkadHEdteG
