@@ -1,7 +1,7 @@
 version: '2'
 services:
   server:
-    image: redash/latest
+    image: redash/redash:latest
     command: server
     depends_on:
       - postgres
