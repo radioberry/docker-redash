@@ -1,4 +1,7 @@
 # docker-redash
+
+[![GitHub release](https://img.shields.io/github/release/radioberry/docker-redash.svg)]()
+[![Build Status](https://travis-ci.org/radioberry/docker-redash.svg?branch=master)](https://travis-ci.org/radioberry/docker-redash)
 redash on docker
 
 ***DEMO:***
