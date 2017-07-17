@@ -14,5 +14,4 @@ docker-compose up -d
 
     $ git clone https://github.com/radioberry/docker-redash.git
     $ cd docker-redash
-    $ git clone https://github.com/getredash/redash-amazon-
-athena-proxy.git
+    $ git clone https://github.com/getredash/redash-amazon-athena-proxy.git
