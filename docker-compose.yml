@@ -18,9 +18,8 @@ services:
       REDASH_SCHEMAS_REFRESH_SCHEDULE: 5
       REDASH_DATE_FORMAT: YYYY/MM/DD
       # for Amazon Athena
-
-      REDASH_ADDITIONAL_QUERY_RUNNERS: redash.query_runner.athena
-      ATHENA_PROXY_URL: http://redash-amazon-athena-proxy:4567/query
+      # REDASH_ADDITIONAL_QUERY_RUNNERS: redash.query_runner.athena
+      # ATHENA_PROXY_URL: http://redash-amazon-athena-proxy:4567/query
   worker:
     image: redash/redash:latest
     restart: always
@@ -35,8 +34,8 @@ services:
       REDASH_SCHEMAS_REFRESH_SCHEDULE: 5
       REDASH_DATE_FORMAT: YYYY/MM/DD
       # for Amazon Athena
-      REDASH_ADDITIONAL_QUERY_RUNNERS: redash.query_runner.athena
-      ATHENA_PROXY_URL: http://redash-amazon-athena-proxy:4567/query
+      # REDASH_ADDITIONAL_QUERY_RUNNERS: redash.query_runner.athena
+      # ATHENA_PROXY_URL: http://redash-amazon-athena-proxy:4567/query
   redis:
     image: redis:3.0-alpine
     restart: always
@@ -55,8 +54,8 @@ services:
     links:
       - server:redash
   # for Amazon Athena
-  redash-amazon-athena-proxy:
-    build: redash-amazon-athena-proxy
+  # redash-amazon-athena-proxy:
+  #   build: redash-amazon-athena-proxy
   #  ports:
   #    - "4567:4567"
     depends_on:
